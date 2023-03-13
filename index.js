@@ -4,6 +4,7 @@ const app = express();
 const router = require('./src/routes/emp');
 const loginrouter = require('./src/routes/login');
 const bodyparser = require('body-parser');
+const registerRouter = require("./src/routes/registration/register");
 // route
 app.get('/',(req,res) => {
     res.send("Hello there!!")
@@ -12,6 +13,7 @@ app.get('/',(req,res) => {
 app.use(bodyparser.json());
 app.use('/emp',router)
 app.use('/login',loginrouter);
+app.use('/register',registerRouter);
 
 // mongodb connection
 mongoose.connect('mongodb+srv://adityarana:HFnBkJgmpXSqheUZ@backendcluster.ksrqzjm.mongodb.net/test', {useNewUrlParser: true})
